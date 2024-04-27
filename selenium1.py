@@ -1,6 +1,5 @@
 import pytest
-from selenium.webdriver import Chrome
-from selenium.webdriver.chrome.options import Options as ChromeOptions  # Import ChromeOptions
+from selenium import webdriver  # Add this import statement
 
 @pytest.fixture(scope="module")
 def browser():
@@ -9,12 +8,20 @@ def browser():
 
     # Set Chrome options to start the browser maximized
     options = webdriver.ChromeOptions()
+    # Further configurations can be added here if needed
     options.add_argument("--start-maximized")
 
     # Initialize the Chrome browser with the specified options and WebDriver path
-    browser = Chrome(options=options)
+    browser = webdriver.Chrome(executable_path=driver_path, options=options)
+
+    # Return the browser instance
     yield browser
-   
+
+    # Teardown - close the browser after the test completes
+    browser.quit()
+
+# Add your test methods here
+  
 
 def test_todo_app(browser):
     # Your test code here
