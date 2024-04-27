@@ -7,7 +7,7 @@ import time
 @pytest.fixture(scope="module")
 def browser():
     # Specify the path to your Chrome WebDriver
-    driver_path = "/usr/bin/chromedriver"
+    driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
     
     # Set Chrome options to start the browser maximized
     options = ChromeOptions()
