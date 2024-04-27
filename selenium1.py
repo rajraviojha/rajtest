@@ -4,9 +4,10 @@ from selenium.common.exceptions import WebDriverException
 import time
 
 @pytest.fixture(scope="module")
+
 def browser():
     # Specify the path to your Chromedriver binary
-    driver_path = "/usr/bin/chromedriver"
+    driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
 
     # Set Chrome options to start the browser maximized
     options = ChromeOptions()
