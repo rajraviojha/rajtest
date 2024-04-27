@@ -1,18 +1,12 @@
-import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# Set Chrome options
+# Set Chrome options (headless mode to run without GUI)
 chrome_options = Options()
-chrome_options.add_argument("--start-maximized")
+chrome_options.add_argument("--headless")  # Uncomment this line to run in headless mode
 
-@pytest.fixture(scope="module")
-def browser():
-    # Initialize the Chrome browser with the specified options
-    browser = webdriver.Chrome(options=chrome_options)
-
-    # Return the browser instance
-    yield browser
+# Initialize the Chrome driver
+driver = webdriver.Chrome(options=chrome_options)
 
 # Add your test methods here
 
