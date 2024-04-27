@@ -1,10 +1,8 @@
 import pytest
 from selenium.webdriver import Chrome
-from selenium.common.exceptions import WebDriverException
-import time
+from selenium.webdriver.chrome.options import Options as ChromeOptions  # Import ChromeOptions
 
 @pytest.fixture(scope="module")
-
 def browser():
     # Specify the path to your Chromedriver binary
     driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
@@ -21,6 +19,7 @@ def browser():
 def test_todo_app(browser):
     # Your test code here
     pass
+
 
 def test_todo_app(browser):
     # Navigate to the application URL
