@@ -1,19 +1,12 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
-# Set the path to your Chrome binary
-chrome_binary_path = "/usr/bin/google-chrome"
-
-# Set Chrome options
+# Set ChromeDriver's full path
+service = Service("/usr/local/bin/chromedriver")  # Adjust the path accordingly
 options = Options()
-options.binary_location = chrome_binary_path  # Set the correct path to your Chrome binary
 
-# Set the path to your ChromeDriver binary
-chrome_driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
-
-# Initialize Chrome WebDriver with options and executable path
-driver = webdriver.Chrome(options=options)
-
+driver = webdriver.Chrome(service=service, options=options)
 
 @pytest.fixture(scope="module")
 def browser():
