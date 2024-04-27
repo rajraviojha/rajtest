@@ -6,19 +6,18 @@ from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")
 
-# Set the path to the ChromeDriver executable
-chrome_driver_path = "/usr/local/bin/chromedriver"  # Update this with the correct path
-
 @pytest.fixture(scope="module")
 def browser():
-    # Initialize the Chrome browser with the specified options and driver path
-    browser = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
+    # Initialize the Chrome browser with the specified options
+    browser = webdriver.Chrome(options=chrome_options)
 
     # Return the browser instance
     yield browser
 
     # Teardown - close the browser after the test completes
     browser.quit()
+
+# Add your test methods here
 
 # Add your test methods here
 def test_todo_app(browser):
