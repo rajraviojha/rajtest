@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver  # Add this import statement
+import time
 
 @pytest.fixture(scope="module")
 def browser():
@@ -30,7 +31,7 @@ def test_todo_app(browser):
 
 def test_todo_app(browser):
     # Navigate to the application URL
-    app_url = "http://54.90.143.75:5000/"
+    app_url = "http://3.87.145.157:5000/"
     browser.get(app_url)
 
     # Find the input field and submit button for adding a task
