@@ -14,15 +14,12 @@ def browser():
     # Return the browser instance
     yield browser
 
-    # Teardown - close the browser after the test completes
-    browser.quit()
-
 # Add your test methods here
 
 # Add your test methods here
 def test_todo_app(browser):
     # Navigate to the application URL
-    app_url = "http://54.90.143.75:5000/"
+    app_url = "https://www.google.com/"
     browser.get(app_url)
 
     # Find the input field and submit button for adding a task
