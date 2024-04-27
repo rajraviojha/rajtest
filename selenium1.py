@@ -1,6 +1,19 @@
-import pytest
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+
+# Set the path to your Chrome binary
+chrome_binary_path = "/usr/bin/google-chrome"
+
+# Set Chrome options
+options = Options()
+options.binary_location = chrome_binary_path  # Set the correct path to your Chrome binary
+
+# Set the path to your ChromeDriver binary
+chrome_driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
+
+# Initialize Chrome WebDriver with options and executable path
+driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
+
 
 @pytest.fixture(scope="module")
 def browser():
@@ -10,7 +23,7 @@ def browser():
     options.add_argument("--start-maximized")
 
     # Initialize the Chrome browser with the specified options
-    browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    browser = webdriver.Chrome(options=options)
 
     # Return the browser instance
     yield browser
