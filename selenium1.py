@@ -1,20 +1,16 @@
 import pytest
-from selenium.webdriver.chrome.options import *
 from selenium import webdriver
-import time
+from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture(scope="module")
 def browser():
-    # Specify the path to your Chromedriver binary
-    driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
-
     # Set Chrome options to start the browser maximized
     options = webdriver.ChromeOptions()
     # Further configurations can be added here if needed
     options.add_argument("--start-maximized")
 
-    # Initialize the Chrome browser with the specified options and WebDriver path
-    browser = webdriver.Chrome(options=options)
+    # Initialize the Chrome browser with the specified options
+    browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     # Return the browser instance
     yield browser
@@ -23,7 +19,6 @@ def browser():
     browser.quit()
 
 # Add your test methods here
-  
 
 def test_todo_app(browser):
     # Your test code here
