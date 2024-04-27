@@ -1,8 +1,6 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-import time
 
 # Set Chrome options
 chrome_options = Options()
@@ -17,7 +15,7 @@ def browser():
     yield browser
 
     # Teardown - close the browser after the test completes
-    browser.quit()
+
 
 # Add your test methods here
 def test_todo_app(browser):
@@ -69,5 +67,4 @@ def test_todo_app(browser):
     assert len(remaining_tasks) == 0
     print("All tasks deleted.")
 
-    # Close the browser
     browser.quit()
