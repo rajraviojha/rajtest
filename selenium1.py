@@ -13,7 +13,7 @@ def browser():
     options.add_argument("--start-maximized")
 
     # Initialize the Chrome browser with the specified options and WebDriver path
-    browser = webdriver.Chrome(executable_path=driver_path, options=options)
+    browser = webdriver.Chrome(options=options)
 
     # Return the browser instance
     yield browser
