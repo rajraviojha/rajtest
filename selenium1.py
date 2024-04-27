@@ -8,13 +8,13 @@ def browser():
     driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
 
     # Set Chrome options to start the browser maximized
-    options = ChromeOptions()
+    options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
 
     # Initialize the Chrome browser with the specified options and WebDriver path
-    browser = Chrome(options=options, executable_path=driver_path)
+    browser = Chrome(options=options)
     yield browser
-    browser.quit()
+   
 
 def test_todo_app(browser):
     # Your test code here
