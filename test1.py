@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+import time
 
 # Set Chrome options (headless mode to run without GUI)
 chrome_options = Options()
@@ -60,11 +62,14 @@ def test_todo_app(browser):
     assert len(remaining_tasks) == 0
     print("All tasks deleted.")
 
-    # Verify if the title contains "Google"
-    if "To-Do List" in driver.title:
-    print("successfully!")
+    # Verify if the title contains "To-Do List"
+    if "To-Do List" in browser.title:
+        print("Successfully opened the To-Do List application!")
     else:
-    print("Failed to open")
-    
-    # Close the browser
-    driver.quit()
+        print("Failed to open the To-Do List application.")
+
+# Call the test method
+test_todo_app(driver)
+
+# Close the browser
+driver.quit()
