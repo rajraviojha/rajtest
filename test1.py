@@ -61,10 +61,10 @@ def test_todo_app(browser):
     print("All tasks deleted.")
 
 # Verify if the title contains "Google"
-    if "To-Do List" in driver.title:
-        print("successfully!")
-    else:
-        print("Failed to open")
-    
-    # Close the browser
-    driver.quit()
+if "To-Do List" in driver.title:
+print("successfully!")
+else:
+print("Failed to open")
+
+# Close the browser
+driver.quit()
