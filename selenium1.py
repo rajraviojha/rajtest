@@ -1,26 +1,25 @@
 import pytest
 from selenium.webdriver import Chrome
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.common.exceptions import WebDriverException
 import time
 
 @pytest.fixture(scope="module")
 def browser():
-    # Specify the path to your Chrome WebDriver
-    driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
-    
+    # Specify the path to your Chromedriver binary
+    driver_path = "/usr/bin/chromedriver"
+
     # Set Chrome options to start the browser maximized
     options = ChromeOptions()
     options.add_argument("--start-maximized")
-    
+
     # Initialize the Chrome browser with the specified options and WebDriver path
-    browser = Chrome(options=options)
-    
-    # Return the browser instance
+    browser = Chrome(options=options, executable_path=driver_path)
     yield browser
-    
-    # Close the browser after the test completes
     browser.quit()
+
+def test_todo_app(browser):
+    # Your test code here
+    pass
 
 def test_todo_app(browser):
     # Navigate to the application URL
