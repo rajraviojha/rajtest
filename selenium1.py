@@ -1,4 +1,7 @@
+import time
+import pytest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
@@ -31,12 +34,6 @@ def browser():
 
     # Teardown - close the browser after the test completes
     browser.quit()
-
-# Add your test methods here
-
-def test_todo_app(browser):
-    # Your test code here
-    pass
 
 
 def test_todo_app(browser):
@@ -88,3 +85,6 @@ def test_todo_app(browser):
     assert len(remaining_tasks) == 0
     print("All tasks deleted.")
 
+# Run the test
+if __name__ == "__main__":
+    pytest.main([__file__, "-s"])
