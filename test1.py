@@ -60,5 +60,11 @@ def test_todo_app(browser):
     assert len(remaining_tasks) == 0
     print("All tasks deleted.")
 
-    # Close the browser
-    browser.quit()
+# Verify if the title contains "Google"
+if "browser" in driver.title:
+    print("successfully!")
+else:
+    print("Failed to open")
+
+# Close the browser
+driver.quit()
