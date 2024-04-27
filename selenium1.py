@@ -12,7 +12,7 @@ options.binary_location = chrome_binary_path  # Set the correct path to your Chr
 chrome_driver_path = "/usr/bin/test123/chromedriver-linux64/chromedriver"
 
 # Initialize Chrome WebDriver with options and executable path
-driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
+driver = webdriver.Chrome(options=options)
 
 
 @pytest.fixture(scope="module")
