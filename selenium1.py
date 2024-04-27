@@ -1,5 +1,5 @@
 import pytest
-from selenium.webdriver.chrome.options import Options  # Add this import statement
+from selenium.webdriver.chrome.options import webdriver import Options  # Add this import statement
 import time
 
 @pytest.fixture(scope="module")
