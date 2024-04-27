@@ -2,11 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
-# Set ChromeDriver's full path
-service = Service("/usr/local/bin/chromedriver")  # Adjust the path accordingly
-options = Options()
+# Set the path to ChromeDriver executable
+chrome_driver_path = "/path/to/chromedriver"
 
-driver = webdriver.Chrome(service=service, options=options)
+# Set Chrome options
+chrome_options = Options()
+chrome_options.add_argument("--start-maximized")
+
+# Set Chrome service
+chrome_service = Service(chrome_driver_path)
+
+# Initialize Chrome WebDriver with service and options
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+
 
 @pytest.fixture(scope="module")
 def browser():
