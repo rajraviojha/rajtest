@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 # Set the path to ChromeDriver executable
-chrome_driver_path = "/path/to/chromedriver"
+chrome_driver_path = "/usr/local/bin/chromedriver"
 
 # Set Chrome options
 chrome_options = Options()
