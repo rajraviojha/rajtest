@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import time
 
 # Set Chrome options (headless mode to run without GUI)
 chrome_options = Options()
