@@ -13,7 +13,7 @@ driver = webdriver.Chrome(options=chrome_options)
 # Add your test methods here
 def test_todo_app(browser):
     # Navigate to the application URL
-    app_url = "https://www.google.com/"
+    app_url = "http://52.73.231.195:5000/"
     browser.get(app_url)
 
     # Find the input field and submit button for adding a task
