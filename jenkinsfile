@@ -2,10 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage("Code Checkout") {
+
+          stage("Code Checkout") {
             steps {
                 echo "Cloning the code"
-                git url: "https://github.com/umahanty/To-Do-Application-Deployment.git", branch: "main"
+                git url: "https://github.com/rajraviojha/rajtest.git", branch: "main"
+            }
+        }
+
+      stage("Virtual environment") {
+            steps {
+                echo "Create and activate virtual environment"
+                sh "python3 -m venv myenv"
+                sh"source myenv/bin/activate"                
+                sh "myenv/bin/pip install selenium"
+	     sh "myenv/bin/pip install selenium webdriver_manager"
+
             }
         }
 
@@ -43,10 +55,10 @@ pipeline {
         stage("Selenium Test") {
             steps {
                 echo "Running Selenium tests"
-                sh 'python3 app.py'
-                sh 'python3 -m pytest'
+		sh 'python3 lastone.py'
+             //   sh 'python3 app.py'
+            //    sh 'python3 -m pytest'
             }
         }
     }
 }
-
