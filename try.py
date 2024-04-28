@@ -81,9 +81,3 @@ class TestFlaskApp(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-# Print the title of the page
-print("Title of the page:", driver.title)
-
-# Close the browser when done
-driver.quit()
